@@ -4,19 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController]
-    // So using [api/[controller] we achieve to have https://localhost:5001 from launchSettings.json
-    // and basically connect our methods to https://localhost:5001/api/ClassName-ControllerWord
-    // and that's why the result here will be https://localhost:5001/api/users
-    [Route("api/[controller]")]
-    // We make a connection with the Class ControllerBase and as a resutl
-    // we can use connections like [HttpGet] etc.
-    public class UsersController : ControllerBase
+    public class UsersController : BaseApiController
     {
         private readonly DataContext _context;
         public UsersController(DataContext context)
@@ -26,11 +20,13 @@ namespace API.Controllers
 
         // Method to take all users from the list
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
         }
 
+        [Authorize]
         // Method to get an individual user and we want to get it by their ID\
         [HttpGet("{id}")]
         // Now, when the user hits or the client hits list, endpoint three in this case
