@@ -1,0 +1,12 @@
+For running the app
+
+Se ena bash 
+1) cd client
+2) ng serve
+sto chrome pataw localhost:4200
+
+
+
+Se ena bash
+1) cd API
+2) dotnet run
