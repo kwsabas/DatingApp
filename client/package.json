@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^14.1.1",
     "@angular/platform-browser-dynamic": "^14.1.1",
     "@angular/router": "^14.1.1",
+    "autoprefixer": "10.4.5",
     "bootstrap": "^4.5.3",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^9.0.0",
@@ -39,8 +40,5 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.6.4"
-  },
-  "overrides": {
-    "autoprefixer": "10.4.5"
   }
 }
