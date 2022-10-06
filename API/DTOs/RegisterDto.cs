@@ -14,6 +14,7 @@ namespace API.DTOs
 
         // Keyword [Required] demands a password from the user.
         [Required]
+        [StringLength(8, MinimumLength = 4)]
         public string Password {get; set;}
     }
 }
